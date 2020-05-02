@@ -3,10 +3,11 @@ from datetime import datetime as dt
 
 hosts_path = '/etc/hosts'
 redirect = '127.0.0.1'
-blocked_websites = ['www.facebook.com', 'facebook.com', 'www.youtube.com', 'youtube.com']
+blocked_websites = {'www.facebook.com',
+                    'facebook.com', 'www.youtube.com', 'youtube.com'}
 
 while True:
-    if dt(dt.now().year, dt.now().month, dt.now().day, 9) < dt.now() < dt(dt.now().year, dt.now().month, dt.now().day, 16):
+    if 9 < dt.now().hour < 17:
         print("Working hours...")
         with open(hosts_path, 'r+') as file:
             content = file.read()
